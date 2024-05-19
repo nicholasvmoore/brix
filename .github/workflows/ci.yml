@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '!README.md'
+      - '**/README.md'
+
+jobs:
+  run-playbooks:
+    runs-on: [self-hosted, linux]
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true
